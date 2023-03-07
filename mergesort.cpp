@@ -1,8 +1,10 @@
 #include<bits/stdc++.h>
 using namespace std;
+using namespace std::chrono;
 #define ll long long
 const int M=1e6+7;
-int a[M],n,b[M];
+double a[M],b[M];
+int n;
 void change(int x,int y)
 {
     int mid=(x+y)/2;
@@ -37,7 +39,7 @@ void change(int x,int y)
         num_y++;
         k++;
     }
-    for(int i=x;i<=y;i++)a[i]=b[i];
+    for(int i=x; i<=y; i++)a[i]=b[i];
 }
 void calc(int x,int y)
 {
@@ -49,11 +51,23 @@ void calc(int x,int y)
 }
 int main()
 {
+    freopen("test.inp","r",stdin);
+    freopen("test.out","w",stdout);
     ios_base::sync_with_stdio(false);
     cin.tie(0);
     cout.tie(0);
+    int num=10;
     cin>>n;
-    for(int i=1;i<=n;i++)cin>>a[i];
-    calc(1,n);
-    for(int i=1;i<=n;i++)cout<<a[i]<<" ";
+
+
+    while(num--)
+    {
+        clock_t start=clock();
+        for(int i=1; i<=n; i++)cin>>a[i];
+        double duration;
+        calc(1,n);
+        duration=(clock()-start)/(double)CLOCKS_PER_SEC;
+        cout<<fixed<<setprecision(4)<<duration<<"\n";
+
+    }
 }
