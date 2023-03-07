@@ -1,8 +1,9 @@
 #include<bits/stdc++.h>
 using namespace std;
+using namespace std::chrono;
 #define ll long long
 const int M=1e6+7;
-int a[M];
+double a[M];
 int n,maxx;
 void change(int index)
 {
@@ -17,19 +18,26 @@ void change(int index)
 }
 int main()
 {
+    freopen("test.inp","r",stdin);
+    freopen("test.out","w",stdout);
     ios_base::sync_with_stdio(false);
     cin.tie(0);
     cout.tie(0);
     cin>>n;
-    maxx=n-1;
-    for(int i=0;i<=n-1;i++)cin>>a[i];
-    for(int i=n/2-1;i>=0;i--)change(i);
-    for(int i=n-1;i>=0;i--)
+    int t=10;
+    while(t--)
     {
-        maxx=i-1;
-        swap(a[0],a[i]);
-        change(0);
-
+        clock_t start=clock();
+        for(int i=1; i<=n; i++)cin>>a[i];
+        double duration;
+        for(int i=n/2-1; i>=0; i--)change(i);
+        for(int i=n-1; i>=0; i--)
+        {
+            maxx=i-1;
+            swap(a[0],a[i]);
+            change(0);
+        }
+        duration=(clock()-start)/(double)CLOCKS_PER_SEC;
+        cout<<fixed<<setprecision(4)<<duration<<"\n";
     }
-    for(int i=0;i<=n-1;i++)cout<<a[i]<<" ";
 }
