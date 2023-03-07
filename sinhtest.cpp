@@ -4,7 +4,7 @@ using namespace std;
 #define randomize mt19937_64 mt(chrono::steady_clock::now().time_since_epoch().count())
 randomize;
 const int M=1e6+7;
-const int MAXN=1e4;
+const int MAXN=1e6;
 int power(int x,int y)
 {
     int ans=1;
