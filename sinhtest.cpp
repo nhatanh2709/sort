@@ -16,6 +16,7 @@ int main()
     freopen("test.inp","r",stdin);
     freopen("test.out","w",stdout);
     int n=M;
+    cout<<n<<endl;
     vector<double>q1;
     vector<double>q2;
     for(int i=1;i<=n;i++)
